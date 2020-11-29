@@ -1,0 +1,27 @@
+{% include 'homepage/base.html' %}
+
+{% block cont %}
+
+<div class="container-md" style="margin-top: 80px;">
+    {% for i in posts %}
+    <div class="row mt-4 mb-4">
+        <div class="col-lg-2"> </div>
+            <div class="col-lg-8 p-4 pl-4" style="background-color: rgb(235, 232, 232);box-shadow: 0 0 25px 1px;">
+                <div>
+                    <i class="fas fa-user-circle" style="font-size:30px;"></i><h4 style="display:inline;">  {{i.user.first_name}}{{i.user.last_name}}  </h4><h5 style="display:inline;">({{i.user.username}})</h5>
+                </div>
+                <h4 class="mt-2" style="text-align: center;">{{i.heading}}</h4>
+                <div class="mt-4">
+                    <img src="../{{i.img}}" style="display:block;margin:auto;height:300px">
+                </div>
+                <div class="mt-4 p-1" >
+                  <h5>{{i.content}}</h5>
+                </div>
+            </div>
+            <div class="col-lg-2"> </div>
+        </div>
+        {% endfor %}
+</div>
+
+
+{% endblock %}

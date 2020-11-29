@@ -1,0 +1,42 @@
+{% include 'homepage/base.html' %}
+
+{% block content %}
+<div class="container-md" style="margin-top: 80px;">
+    <div class="row mt-4">
+        <div class="col-md-2"> </div>
+
+            <div class="col-md-8 p-3" style="background-color: rgb(224, 224, 224);">
+                <h3>Want to write a blog?</h3>
+                <form enctype="multipart/form-data" class="form p-1" method="POST" action="">{%csrf_token%}
+                    <div class="form-group">
+                        <label for="heading">Heading of article</label><br>
+                        <input type="text" class="form-control" name="heading" id="heading">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Article</label><br>
+                        <textarea class="form-control" name="article" id="content" rows="6"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="ispublic">Want to keep it public:- </label>
+                        <input type="checkbox" checked name="ispublic" id="ispublic"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Add image</label><br>
+                        <input  type="file" name="img" id="image" accept="image*/" > 
+                    </div>
+
+                    <div>
+                        {% for message in messages %}
+                        <p style="color:red;">{{message}}</h3>
+                        {% endfor %}
+                    </div>
+                    <button class="btn btn-primary">Post</button>
+                </form>
+            </div>
+            
+        <div class="col-md-2"> </div>
+    </div>
+</div>
+
+
+{% endblock %}
